@@ -1,0 +1,74 @@
+EcoRRAP Metashape processing: DSLR 
+
+The current scripts are used in the EcoRRAP workflow for producing 2D and 3D models using Agisoft Metashape from DSLR imagery (see SOP: https://aimsgovau.sharepoint.com/:w:/r/sites/RRAPEcoRRAP/_layouts/15/Doc.aspx?sourcedoc=%7BE9F3BBC5-893D-4579-AF69-BD3837B62B8F%7D&file=3D%20Processing%20Cheat%20Sheet_20230313.docx&action=default&mobileredirect=true)  
+At the time of writing, the Metashape version in-use is 1.8.0, and as such, instructions are reflective of this. 
+Future versions of Metashape may require revision of python scripts to ensure continued fucntionality and efficiecy. 
+An annual review of these scripts and the associated SOP will be conducted during the life of the sub-program.  
+
+EcoRRAP processing scripts are split into three:
+- Chain 1
+	Requires: Metashape project saved and all photos imported (one chunk per project)
+	Processing location: Local, designed for use in field
+	Contains jobs: Photo quality check, photo disable, lowest quality alignment, marker detection, add and check scale bars, import marker depth, generate processing log, save file
+
+- Chain 2 - Part 1
+	Requires: Metashape project processed to completion of Chain 1 and error checked
+	Processing location: Network or Local, Network ideal
+	Contains jobs: High quality alignment, calculate scalebar error, resize bouding box, duplicate chunk, save file
+
+- Manual step
+	Requires: Manual intervention in bounding box placement and quality control check (described below)
+
+- Chain 2 - Part 2
+	Requires: Metashape project processed to completion of Chain 2 Part 1 and manual quality control check
+	Processing location: Network or Local, Network ideal
+	Contains jobs: Crop point cloud, initial camera optimization, filer and re-optimization of cameras, build depth maps, build mesh, build texture
+
+Instructions
+
+Chain 1 
+
+If first time using script:
+-Navigate to script ‘Chain 1’ and right click to open in IDLE or alternative viewer 
+-Read lines 1-57 of script to understand functionality, required user inputs, and default values used 
+
+Before running script: 
+-Confirm default settings within the script (keep default unless required) 
+-scalebarpath = 'C:/scripts/EcoRRAP/scalebars.txt'  
+-The default is the recommended file location on the local drive  
+tolerance_firstattempt = 25 (marker tolerance) 
+tolerance_secondattempt = 50 (marker tolerance if < 3 scalebars) 
+min_marker_projections = 5 (disables markers with projections < value) 
+marker_projection_error_threshold = 50 (removes marker projections from photos where error is > value) 
+
+
+Chain 2 - Part 1 
+
+If first time using script:
+- Determine whether to run script on the Network (default) or Locally (on your personal computer. Routine processing should take place on the Network. 
+- Navigate to script ‘Chain 2 Part 1 Network/Local’ and right click to open in IDLE or alternative viewer 
+- Read lines 1-16 of script to understand functionality 
+- No user input is required  
+
+
+Manual step: A manual step is then required (described below) before running the next script
+
+-Visually check bounding box placement and edit as required:
+--Check that the plot is located in the centre of the bounding box. Refer to sphere trees as visual markers of plot location (Fig. 2a-d). 
+--If the bounding box needs to be moved or rotated use the ‘Move bounding box’ and ‘Rotate bounding box’ tools (Fig. 2e,f). 
+--Ensure to re-select the arrow tool once bounding box adjustment complete 
+--Navigate to Workflow > Build Mesh, and select Sparse Cloud as the source (all other options as default) to re-make the mesh to check adjusted bounding box placement  
+--Repeat process if required 
+--Note: This step is best completed on remote connection to desktop computers (e.g. AIMS-CT73NF3) not the network server due to graphics loading time and lag. 
+
+
+Chain 2 - Part 2
+
+If first time using script:
+-Determine whether to run script on the Network (default) or Locally (on your personal computer. Routine processing should take place on the Network. 
+-Navigate to script ‘Chain 2 Part 2 Network/Local’ and right click to open in IDLE or alternative viewer 
+-Read lines 1-16 of script to understand functionality 
+-No user input is required  
+
+
+Metashape processing is now complete and models should be checked for quality 
