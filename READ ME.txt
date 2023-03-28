@@ -1,0 +1,15 @@
+Ecological Intelligence for Reef Restoration (EcoRRAP)
+
+
+The EcoRRAP R&D Subprogram fills key knowledge gaps essential for the success and cost-effectiveness of reef restoration interventions.
+An integrated field program, EcoRRAP provides data on region-, temperature- and species-specific coral life-histories.
+It quantifies natural rates of recovery and adaptation in response to global and local changes, as well as rates of recovery in response to interventions.
+The central objective is to optimise interventions by understanding the ‘how, where, and when’ of natural reef recovery. 
+This foundational data will help inform assumptions and decisions across the whole of RRAP and enable the success and cost-effectiveness of intervention research and development. 
+
+For full information about this program please visit: https://gbrrestoration.org/program/ecorrap/
+To access metadata records for this program please visit: http://corporate.aims.gov.au/metadata/view/fe9659f1-12d6-4acf-ab89-67acdd37efe5
+
+Scripts provided within this GitHub aim to provide information and processing assistance in areas including:
+- Creating 2D and 3D reconstructions of benthic communuties from DSLR and GoPro imagery (Agisoft Metashape)
+- Calculating 3D structural complexity metrics from 3D benthic models
