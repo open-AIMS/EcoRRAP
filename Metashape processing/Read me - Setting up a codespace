@@ -1,10 +1,12 @@
 How to add, modify and troubleshoot scripts using Visual Studio code without having to open GitHub.
 
+Important: Creating a secondary branch in your repository is recommended. For the editing of the scripts we will be using the 'Editing' branch. To view and select different branches select the drop-down 'Switch branches/tag' icon (lefft-side icon, three connected dots).
+
 To open an excisting Codespace:
 *From GitHub
   - In the main page of your repository click on the top-left side panel (three lines) 
   - Open the Codespaces
-  - Select the codespace you will work on. Using the thre
+  - Select the codespace you will work on. By cliking on your workspace a new window will open with your codespace using VSC. If you wish to open your codespace using a different software click the three dots at the end 'Show more actions for codespace' to view more options. 
 
 *From Visual Studio Code (VSC)
 To open the codespace from VSC without openening Github, install 'Github codespaces' extension in VSC. Once installed you may select 'Open Remote Window' blue icon with to opposing arrows on the bottom-left corner of VSC. When selected it should open a drop down pane: select 'Connect to codespace'
